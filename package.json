@@ -1,0 +1,35 @@
+{
+  "name": "boundman",
+  "version": "0.0.1",
+  "description": "boundman",
+  "main": "index.ts",
+  "author": "boundman",
+  "license": "FV2",
+  "private": true,
+  "scripts": {
+    "start": "yarn webpack serve --mode development",
+    "build": "yarn webpack --mode production"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.2.241",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "babel-loader": "^8.2.5",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-webpack-plugin": "^3.2.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.7.1",
+    "swc-loader": "^0.2.3",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0"
+  },
+  "dependencies": {
+    "phaser": "^3.55.2"
+  }
+}
