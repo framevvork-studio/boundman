@@ -3,7 +3,7 @@ interface IPlayer {
   displayName: string;
   link: string;
   initialPositionX: number;
-  particle: string;
+  particle: string | null;
   scale: number;
   speed: number;
 }

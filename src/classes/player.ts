@@ -6,7 +6,7 @@ class Player extends Physics.Arcade.Sprite {
   keyA: Input.Keyboard.Key;
   keyS: Input.Keyboard.Key;
   keyD: Input.Keyboard.Key;
-  particle: string;
+  particle: string | null;
   scale: number;
   speed: number;
   height: number;
@@ -24,7 +24,7 @@ class Player extends Physics.Arcade.Sprite {
     scene: Scene;
     x: number;
     y: number;
-    particle: string;
+    particle: string | null;
     player: string;
     scale: number;
     speed: number;
@@ -56,8 +56,9 @@ class Player extends Physics.Arcade.Sprite {
     this.setBounce(0.7, 1);
     this.setCollideWorldBounds(true);
 
+    if (!this.particle) return;
     this.scene.add.particles(this.particle).createEmitter({
-      speed: 100,
+      speed: this.speed / 4,
       scale: { start: 0.1, end: 0.25 },
       blendMode: 'ADD',
       follow: this,

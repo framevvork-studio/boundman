@@ -19,7 +19,7 @@ class SelectPlayer extends Phaser.Scene {
         scale: 0.5,
         speed: 800,
       },
-      { id: 'boundDog', displayName: 'BOUND DOG', initialPositionX: 180, link: './../assets/players/bound-dog.png', particle: 'red', scale: 0.25, speed: 900 },
+      { id: 'boundDog', displayName: 'BOUND DOG', initialPositionX: 180, link: './../assets/players/bound-dog.png', particle: null, scale: 0.25, speed: 900 },
       {
         id: 'boundBall',
         displayName: 'BOUND BALL',
