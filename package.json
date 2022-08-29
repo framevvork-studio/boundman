@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "start": "yarn webpack serve --mode development",
-    "build": "yarn webpack --mode production"
+    "build": "yarn webpack --mode production",
+    "deploy": "yarn build && aws s3 sync ./dist s3://framevvork-boundman --profile=framevvork"
   },
   "devDependencies": {
     "@swc/core": "^1.2.241",

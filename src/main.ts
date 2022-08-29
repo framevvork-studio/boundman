@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import { Loading } from './scenes';
+import { Loading, Play, SelectPlayer } from './scenes';
 
 new Phaser.Game({
   type: Phaser.AUTO,
@@ -9,15 +9,15 @@ new Phaser.Game({
     fullscreenTarget: 'body',
     mode: Phaser.Scale.RESIZE,
   },
-  backgroundColor: '#c5f5fd',
+  backgroundColor: '#009db0',
   physics: {
     default: 'arcade',
     arcade: {
-      // debug: process.env.NODE_ENV === 'development',
+      debug: process.env.NODE_ENV === 'development',
       gravity: {
         y: 1000,
       },
     },
   },
-  scene: Loading,
+  scene: [Loading, Play, SelectPlayer],
 });
