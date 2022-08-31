@@ -79,7 +79,7 @@ class Play extends Phaser.Scene {
 
           this.physics.add.collider(star, bottom, () => {
             this.score += 1;
-            this.scoreText.setText(`${this.score}`);
+            this.scoreText?.setText(`${this.score}`);
             star.destroy();
           });
 
@@ -88,7 +88,7 @@ class Play extends Phaser.Scene {
             this.time.delayedCall(1000, () => {
               this.scene.pause();
               this.score = 0;
-              this.scoreText.setText(`${this.score}`);
+              this.scoreText?.setText(`${this.score}`);
               this.scene.restart();
             });
           });
