@@ -5,7 +5,7 @@ import { IPlayer } from '../interfaces';
 
 class Play extends Phaser.Scene {
   score: number;
-  scoreText: any;
+  scoreText: Phaser.GameObjects.Text | undefined;
 
   height: number;
   width: number;
@@ -36,8 +36,8 @@ class Play extends Phaser.Scene {
     const bottom = this.physics.add.staticGroup({ key: '' }).create(0, this.height, '').setScale(this.width, 0.001).refreshBody();
 
     this.add
-      .text(100, 100, 'BACK', { font: '900 32px sans-serif' })
-      .on('pointerdown', () => {
+      .text(50, 50, 'BACK', { font: '900 64px sans-serif' })
+      .on('pointerup', () => {
         this.scene.start('select-player');
       })
       .setInteractive();
@@ -79,7 +79,7 @@ class Play extends Phaser.Scene {
 
           this.physics.add.collider(star, bottom, () => {
             this.score += 1;
-            this.scoreText.setText(this.score);
+            this.scoreText.setText(`${this.score}`);
             star.destroy();
           });
 
@@ -88,7 +88,7 @@ class Play extends Phaser.Scene {
             this.time.delayedCall(1000, () => {
               this.scene.pause();
               this.score = 0;
-              this.scoreText.setText(this.score);
+              this.scoreText.setText(`${this.score}`);
               this.scene.restart();
             });
           });

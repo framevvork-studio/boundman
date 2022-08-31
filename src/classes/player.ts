@@ -34,8 +34,6 @@ class Player extends Physics.Arcade.Sprite {
     scene.add.existing(this);
     scene.physics.add.existing(this);
 
-    this.scene.load.image('yellow', './../assets/particles/yellow.png');
-
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.keyW = this.scene.input.keyboard.addKey('W');
     this.keyA = this.scene.input.keyboard.addKey('A');
@@ -53,7 +51,7 @@ class Player extends Physics.Arcade.Sprite {
       this.handleTouch();
     });
     this.setScale(this.scale);
-    this.setBounce(0.7, 1);
+    this.setBounce(0.85, 1);
     this.setCollideWorldBounds(true);
 
     if (!this.particle) return;

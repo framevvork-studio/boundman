@@ -19,7 +19,7 @@ class Loading extends Phaser.Scene {
       loop: -1,
     });
 
-    this.input.on('pointerdown', () => {
+    this.input.on('pointerup', () => {
       this.scene.start('select-player');
     });
   }

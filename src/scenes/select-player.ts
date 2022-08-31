@@ -48,7 +48,7 @@ class SelectPlayer extends Phaser.Scene {
 
     this.players.map(({ id, displayName }, index) => {
       const player = this.add
-        .text(screenCenterX, initialPositionY + (index + 1) * 200, displayName, { font: '900 64px sans-serif' })
+        .text(screenCenterX, initialPositionY + (index + 1) * 150, displayName, { font: '900 64px sans-serif' })
         .setOrigin(0.5)
         .setInteractive()
         .on('pointerover', () => {
