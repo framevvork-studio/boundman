@@ -96,7 +96,6 @@ class Play extends Phaser.Scene {
     this.stars = this.physics.add.group({
       key: 'star',
       setXY: { x: initialPositionX, y: initialPositionY, stepX },
-      angularVelocity: 100,
       collideWorldBounds: true,
       repeat,
       setScale: { x: 0.1, y: 0.1 },
@@ -107,15 +106,16 @@ class Play extends Phaser.Scene {
       const gravityY = Math.trunc(Math.random() * 1000) - 950;
 
       star.setGravity(gravityX, gravityY);
+      star.setAngularVelocity(gravityX * 5);
       this.physics.add.collider(this.bottom, star, () => {
         this.score += 1;
         this.scoreText?.setText(`${this.score}`);
         star.destroy();
       });
+    });
 
-      this.physics.add.overlap(this.player, star, () => {
-        this.overlapPlayerAndStar();
-      });
+    this.physics.add.overlap(this.player, this.stars, () => {
+      this.overlapPlayerAndStar();
     });
   }
 
