@@ -48,7 +48,7 @@ class Play extends Phaser.Scene {
     this.bottom = this.physics.add.staticGroup({ key: '' }).create(0, this.height, '').setScale(this.width, 0.001).refreshBody();
 
     this.add
-      .text(50, 50, 'BACK', { font: '900 64px sans-serif' })
+      .text(100, 100, '<', { font: '900 128px sans-serif' })
       .on('pointerup', () => {
         this.scene.start('select-player');
       })
