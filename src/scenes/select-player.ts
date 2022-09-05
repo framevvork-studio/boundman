@@ -38,6 +38,8 @@ class SelectPlayer extends Phaser.Scene {
       this.load.image(particle, `./../assets/particles/${particle}.png`);
     });
     this.players.forEach(({ id, link }) => this.load.image(id, link));
+
+    this.load.html('form', './../assets/input.html');
   }
 
   create() {
@@ -61,8 +63,22 @@ class SelectPlayer extends Phaser.Scene {
           player.setStyle({ fill: '#f2d422' });
         })
         .on('pointerup', () => {
+          const isExistName = localStorage.getItem('name');
+          if (!isExistName) return window.alert('NAME');
           this.scene.start('play', { player: this.players.find((player) => player.id === id) });
         });
+    });
+
+    const isExistName = localStorage.getItem('name');
+    if (isExistName) return;
+
+    const element = this.add.dom(screenCenterX, initialPositionY + (this.players.length + 1) * 150).createFromCache('form');
+
+    element.addListener('keyup');
+    element.on('keyup', (event: { target: { value: string } }) => {
+      const name = event.target.value;
+      console.log('name', name);
+      localStorage.setItem('name', name);
     });
   }
 }

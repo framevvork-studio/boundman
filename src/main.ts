@@ -10,6 +10,8 @@ new Phaser.Game({
     mode: Phaser.Scale.RESIZE,
   },
   backgroundColor: '#009db0',
+  dom: { createContainer: true },
+  parent: 'game',
   physics: {
     default: 'arcade',
     arcade: {

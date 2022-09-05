@@ -140,7 +140,7 @@ class Play extends Phaser.Scene {
     await this.requestHelper.createScore({
       score: this.score,
       character: this.selectedPlayer?.id,
-      playerName: 'beom',
+      playerName: localStorage.getItem('name') ?? '',
       startTime: this.startTime,
       endTime: this.endTime,
     });
