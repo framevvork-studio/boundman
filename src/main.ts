@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import { Loading, Play, SelectPlayer } from './scenes';
+import { Loading, Play, ScoreBoard, SelectPlayer } from './scenes';
 
 new Phaser.Game({
   type: Phaser.AUTO,
@@ -19,5 +19,5 @@ new Phaser.Game({
       },
     },
   },
-  scene: [Loading, Play, SelectPlayer],
+  scene: [Loading, Play, ScoreBoard, SelectPlayer],
 });

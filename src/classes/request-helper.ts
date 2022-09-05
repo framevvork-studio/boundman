@@ -30,6 +30,19 @@ class RequestHelper {
       return { error };
     }
   }
+
+  async getScores() {
+    try {
+      const response = await this.axiosInstance({
+        method: 'get',
+        url: '/score',
+      });
+
+      return { response };
+    } catch (error) {
+      return { error };
+    }
+  }
 }
 
 export default RequestHelper;

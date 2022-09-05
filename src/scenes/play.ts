@@ -126,7 +126,7 @@ class Play extends Phaser.Scene {
       this.scoreText?.setText(`${this.score}`);
       this.endTime = null;
       this.isGameOver = false;
-      this.scene.restart();
+      this.scene.start('score-board');
     });
   }
 
