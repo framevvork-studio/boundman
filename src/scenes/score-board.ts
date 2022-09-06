@@ -12,10 +12,14 @@ class ScoreBoard extends Phaser.Scene {
   }
 
   async create() {
-    const {
-      response: { data },
-    } = await this.requestHelper.getScores();
-    this.scores = data;
+    try {
+      const {
+        response: { data },
+      } = await this.requestHelper.getScores();
+      this.scores = data;
+    } catch (error) {
+      console.log(error);
+    }
 
     const screenCenterX = this.cameras.main.centerX;
     const initialPositionY = 100;

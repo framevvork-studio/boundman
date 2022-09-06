@@ -6,7 +6,7 @@ class RequestHelper {
 
   constructor() {
     this.timeout = 1000 * 10;
-    this.axiosInstance = axios.create({ baseURL: 'http://localhost:3000', timeout: this.timeout });
+    this.axiosInstance = axios.create({ baseURL: 'http://43.200.243.143:3000/', timeout: this.timeout });
 
     this.axiosInstance.interceptors.request.use((configuration) => {
       const { innerWidth, innerHeight } = window;
