@@ -12,15 +12,6 @@ class ScoreBoard extends Phaser.Scene {
   }
 
   async create() {
-    try {
-      const {
-        response: { data },
-      } = await this.requestHelper.getScores();
-      this.scores = data;
-    } catch (error) {
-      console.log(error);
-    }
-
     const screenCenterX = this.cameras.main.centerX;
     const initialPositionY = 100;
 
@@ -45,6 +36,10 @@ class ScoreBoard extends Phaser.Scene {
     this.input.on(Phaser.Input.Events.POINTER_UP, () => {
       this.scene.start('play');
     });
+  }
+
+  init({ scores }: { scores: any[] }) {
+    this.scores = scores;
   }
 
   getCurrentWeek() {

@@ -77,7 +77,6 @@ class SelectPlayer extends Phaser.Scene {
     element.addListener('keyup');
     element.on('keyup', (event: { target: { value: string } }) => {
       const name = event.target.value;
-      console.log('name', name);
       localStorage.setItem('name', name);
     });
   }

@@ -19,6 +19,7 @@ class Play extends Phaser.Scene {
   stars: Phaser.Physics.Arcade.Group | null;
   timerToCreateStars: Phaser.Time.TimerEvent | null;
   bottom: Phaser.Physics.Arcade.StaticGroup | null;
+  scores: any[];
 
   constructor() {
     super('play');
@@ -35,6 +36,7 @@ class Play extends Phaser.Scene {
     this.stars = null;
     this.timerToCreateStars = null;
     this.bottom = null;
+    this.scores = [];
   }
 
   preload() {
@@ -126,7 +128,8 @@ class Play extends Phaser.Scene {
       this.scoreText?.setText(`${this.score}`);
       this.endTime = null;
       this.isGameOver = false;
-      this.scene.start('score-board');
+
+      this.scene.start('score-board', { scores: this.scores });
     });
   }
 
@@ -145,9 +148,12 @@ class Play extends Phaser.Scene {
       endTime: this.endTime,
     });
 
-    setTimeout(() => {
-      this.isGameOver = true;
-    }, 2000);
+    const {
+      response: { data: scores },
+    } = await this.requestHelper.getScores();
+
+    this.scores = scores;
+    this.isGameOver = true;
   }
 }
 
